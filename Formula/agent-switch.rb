@@ -1,11 +1,10 @@
 class AgentSwitch < Formula
   desc "Run Claude Code on several subscriptions from one machine"
   homepage "https://github.com/galawaydude/agent-switch"
-  url "https://github.com/galawaydude/agent-switch/releases/download/v0.1.0/agent-switch-0.1.0.tgz"
-  sha256 "5ac704836faa4a9e3a3a29969ff36a336e2c7377b258cc3d30527c7dfc146d5b"
+  url "https://github.com/galawaydude/agent-switch/releases/download/v0.2.0/agent-switch-0.2.0.tgz"
+  sha256 "53f397f7c6349ad35b8c5082f3127d161149b1db915e25ca119501c4ed4afd13"
   license "MIT"
 
-  depends_on :linux
   depends_on "node"
 
   def install

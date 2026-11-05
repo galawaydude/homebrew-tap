@@ -8,12 +8,16 @@ on:
 
 jobs:
   install:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
     steps:
       - uses: actions/checkout@v4
       - name: Install from this tap
         run: |
-          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"; fi
           brew tap galawaydude/tap "$GITHUB_WORKSPACE"
           brew install galawaydude/tap/agent-switch
           brew test galawaydude/tap/agent-switch
