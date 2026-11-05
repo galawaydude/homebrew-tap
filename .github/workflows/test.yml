@@ -1,0 +1,21 @@
+name: brew test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install from this tap
+        run: |
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          brew tap galawaydude/tap "$GITHUB_WORKSPACE"
+          brew install galawaydude/tap/agent-switch
+          brew test galawaydude/tap/agent-switch
+          brew audit --strict galawaydude/tap/agent-switch || true
+          agent-switch --version
