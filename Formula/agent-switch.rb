@@ -1,8 +1,8 @@
 class AgentSwitch < Formula
   desc "Run Claude Code on several subscriptions from one machine"
   homepage "https://github.com/galawaydude/agent-switch"
-  url "https://github.com/galawaydude/agent-switch/releases/download/v0.3.0/agent-switch-0.3.0.tgz"
-  sha256 "69226023f93efe0e4a4a185351f4f6345b98b3a1809e789cb06bb9d84895be0c"
+  url "https://github.com/galawaydude/agent-switch/releases/download/v0.4.0/agent-switch-0.4.0.tgz"
+  sha256 "88280f8ad44b11a42a8d133714cd5d9a3edc6460efc244cead806691ea23d4ad"
   license "MIT"
 
   depends_on "node"
@@ -14,10 +14,9 @@ class AgentSwitch < Formula
 
   def caveats
     <<~EOS
-      To make `claude` start as the account you pick, add this to your shell rc:
-        eval "$(agent-switch shell-init)"
-      Then check the setup with:
-        agent-switch doctor
+      Connect `claude` in your terminal, then open the page:
+        agent-switch setup
+        agent-switch ui
     EOS
   end
 
